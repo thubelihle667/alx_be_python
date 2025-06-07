@@ -13,7 +13,8 @@ def perform_operation(num1, num2, operation):
         case "divide":
             if num2 == 0:
                 return "Error: Division by zero is not allowed."
-            result = num1 / num2
+            else:
+                result = num1 / num2
         case _:
             return "Error: Invalid operation."
     return f"The result of {operation}ing {num1} and {num2} is: {result}"
