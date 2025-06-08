@@ -20,7 +20,7 @@ if __name__ == "__main__":
     elif temperature_type == "F":
         print(FAHRENHEIT_TO_CELSIUS())
     else:
-        print("Invalid temperature type. Please try again.")
+        print("Invalid temperature. Please enter a numeric value.")
         
     
     
