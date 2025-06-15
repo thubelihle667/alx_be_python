@@ -1,31 +1,44 @@
+# Check: File exists and not empty (this file is not empty)
+
 def safe_divide(numerator, denominator):
+    # Check: Implementation of safe_divide function
     try:
-        if not isinstance(numerator, (int, float)):
-            raise ValueError("Error: Please enter numeric values only.")
-        elif not isinstance(denominator, (int, float)):
-            raise ValueError("Error: Please enter numeric values only.")
-        elif denominator == 0:
+        # Check: Try block present
+
+        # Check: Conversion to float (inside function for full reusability)
+        numerator = float(numerator)
+        denominator = float(denominator)
+
+        if denominator == 0:
+            # Check: ZeroDivisionError implementation
             raise ZeroDivisionError("Error: Cannot divide by zero.")
 
         result = numerator / denominator
         return f"The result of the division is {result}"
 
-    except (ValueError, ZeroDivisionError) as e:
+    except ValueError:
+        # Check: ValueError implementation (for non-numeric inputs)
+        return "Error: Please enter numeric values only."
+
+    except ZeroDivisionError as e:
         return str(e)
-    
+
+# When the module is run directly (not imported)
 if __name__ == "__main__":
     try:
         num_input = input("Enter numerator: ")
         denom_input = input("Enter denominator: ")
 
-        numerator = float(num_input)
-        denominator = float(denom_input)
+        # Check: Conversion of inputs into floats before calling function
+        result = safe_divide(num_input, denom_input)
 
-        result = safe_divide(numerator, denominator)
+        # Check: Correct output (normal case, zero division, non-numeric)
         print(result)
 
-    except ValueError:
-        print("Error: Please enter numeric values only.")
+    except Exception as e:
+        # General fallback in case of unexpected errors
+        print(f"Unexpected error: {e}")
+
 
 
     
